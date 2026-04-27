@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Artistover — Logo Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,30..100,0..1;1,9..144,300..900,30..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper:        #F2ECDF;
+    --paper-warm:   #E8DFCA;
+    --ink:          #1A1410;
+    --ink-soft:     #5C5046;
+    --ink-faint:    #9A8E7E;
+    --rule:         #C9BCA3;
+    --accent:       #B83A2A;
+    --accent-soft:  #E5B14A;
+    --accent-blue:  #2B3A55;
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans:  'Instrument Sans', system-ui, sans-serif;
+    --mono:  'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(ellipse at 12% 8%, rgba(184, 58, 42, 0.06) 0%, transparent 45%),
+      radial-gradient(ellipse at 92% 92%, rgba(229, 177, 74, 0.07) 0%, transparent 45%),
+      radial-gradient(ellipse at 88% 18%, rgba(43, 58, 85, 0.04) 0%, transparent 40%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* paper grain */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.55'/></svg>");
+    opacity: 0.07;
+    mix-blend-mode: multiply;
+  }
+
+  /* scroll progress */
+  .progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--accent);
+    width: 0;
+    z-index: 200;
+    transition: width 80ms linear;
+  }
+
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 32px 56px 96px;
+  }
+
+  /* ─── topbar ─── */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--ink);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .topbar .l, .topbar .r { display: flex; gap: 28px; align-items: center; }
+  .topbar .mark {
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  /* ─── hero ─── */
+  .hero {
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--accent);
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 144, 'wght' 400, 'SOFT' 50, 'WONK' 1;
+    font-size: clamp(72px, 13.5vw, 220px);
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+    color: var(--ink);
+    font-style: italic;
+    margin-bottom: 36px;
+    position: relative;
+  }
+  .hero-title .ov {
+    font-style: normal;
+    color: var(--accent);
+    font-variation-settings: 'opsz' 144, 'wght' 600, 'SOFT' 100, 'WONK' 1;
+  }
+  .hero-title .clef {
+    position: absolute;
+    right: -2vw;
+    top: 50%;
+    transform: translateY(-50%) rotate(-8deg);
+    width: 12vw;
+    height: 12vw;
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  .hero-sub {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 18, 'wght' 350;
+    font-size: clamp(20px, 2.2vw, 28px);
+    line-height: 1.4;
+    max-width: 760px;
+    color: var(--ink-soft);
+  }
+  .hero-sub em {
+    font-style: italic;
+    color: var(--ink);
+    font-variation-settings: 'opsz' 18, 'wght' 400;
+  }
+
+  /* ─── section base ─── */
+  section.block {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  section.block .meta {
+    position: sticky;
+    top: 32px;
+  }
+  section.block .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 16px;
+  }
+  section.block .meta h3 {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 14, 'wght' 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink);
+  }
+  section.block h2 {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 80, 'wght' 450, 'SOFT' 50;
+    font-size: clamp(36px, 4.5vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin-bottom: 28px;
+  }
+  section.block h2 em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: 'opsz' 80, 'wght' 450, 'SOFT' 100, 'WONK' 1;
+  }
+  section.block p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink);
+    max-width: 68ch;
+    margin-bottom: 18px;
+  }
+  section.block p.lead {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 18, 'wght' 350;
+    font-size: 21px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+  }
+  section.block ul {
+    list-style: none;
+    margin-bottom: 18px;
+  }
+  section.block ul li {
+    padding: 10px 0 10px 28px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  section.block ul li:last-child { border-bottom: none; }
+  section.block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 22px;
+    width: 14px; height: 1px;
+    background: var(--accent);
+  }
+  section.block ul li strong {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 14, 'wght' 600;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* ─── facts grid ─── */
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 8px;
+  }
+  .facts .cell {
+    background: var(--paper);
+    padding: 24px 22px;
+  }
+  .facts .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+  }
+  .facts .value {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 32, 'wght' 500;
+    font-size: 22px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .facts .value em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* ─── segment cards ─── */
+  .segments {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+  }
+  .segment {
+    border: 1px solid var(--ink);
+    padding: 28px 24px;
+    position: relative;
+    background: var(--paper);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .segment:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .segment .seg-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-variation-settings: 'opsz' 96, 'wght' 400, 'SOFT' 100, 'WONK' 1;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .segment h4 {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 24, 'wght' 500;
+    font-size: 22px;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .segment p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .segment.unknown {
+    background: repeating-linear-gradient(
+      45deg,
+      var(--paper),
+      var(--paper) 8px,
+      var(--paper-warm) 8px,
+      var(--paper-warm) 16px
+    );
+  }
+  .segment.unknown p { font-style: italic; }
+
+  /* ─── direction split ─── */
+  .directions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--ink);
+    margin: 8px 0 24px;
+  }
+  .direction {
+    padding: 32px;
+    border-right: 1px solid var(--ink);
+  }
+  .direction:last-child { border-right: none; }
+  .direction.b { background: var(--paper-warm); }
+  .direction .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid var(--accent);
+  }
+  .direction h4 {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 32, 'wght' 500;
+    font-size: 28px;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+  .direction h4 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .direction .ref {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-faint);
+    margin-bottom: 18px;
+  }
+  .direction p {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .direction .priority {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--ink-faint);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .direction .priority strong { color: var(--accent); }
+
+  /* ─── pull quote ─── */
+  .pull {
+    grid-column: 1 / -1;
+    margin: 40px 0 8px;
+    padding: 40px 0;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    text-align: center;
+  }
+  .pull q {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 96, 'wght' 350, 'SOFT' 100, 'WONK' 1;
+    font-style: italic;
+    font-size: clamp(34px, 4.5vw, 60px);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    quotes: '“' '”';
+  }
+  .pull q::before { color: var(--accent); }
+  .pull q::after  { color: var(--accent); }
+  .pull .src {
+    display: block;
+    margin-top: 18px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ─── R-to-treble-clef sketch ─── */
+  .clef-feature {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 56px;
+    align-items: center;
+    margin-top: 8px;
+    padding: 36px 0;
+  }
+  .clef-art {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 56px 40px;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .clef-art::before {
+    content: 'SKETCH';
+    position: absolute;
+    top: 16px; left: 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent-soft);
+  }
+  .clef-art svg {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+  }
+  .clef-text h4 {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 60, 'wght' 450;
+    font-size: 36px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .clef-text h4 em { font-style: italic; color: var(--accent); }
+  .clef-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .clef-text .ref-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+    display: inline-block;
+    margin-top: 8px;
+    text-decoration: none;
+  }
+
+  /* ─── type specimen ─── */
+  .specimen {
+    margin-top: 12px;
+  }
+  .spec-row {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    align-items: baseline;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .spec-row:first-child { border-top: 1px solid var(--ink); }
+  .spec-row .name {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .spec-row .preview {
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .spec-row.roboto .preview { font-family: 'Roboto', var(--sans); font-weight: 700; }
+  .spec-row.sf .preview {
+    font-family: -apple-system, 'SF Pro Display', 'BlinkMacSystemFont', var(--sans);
+    font-weight: 700;
+  }
+  .spec-row .tag-out {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+  }
+
+  /* ─── color swatches ─── */
+  .palette {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    margin: 12px 0 24px;
+  }
+  .swatch {
+    aspect-ratio: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .swatch .lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .swatch .hex {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+  .sw-paper  { background: var(--paper);       color: var(--ink); }
+  .sw-warm   { background: var(--paper-warm);  color: var(--ink); }
+  .sw-ink    { background: var(--ink);         color: var(--paper); }
+  .sw-acc    { background: var(--accent);      color: var(--paper); }
+  .sw-mustard{ background: var(--accent-soft); color: var(--ink); }
+
+  .palette-note {
+    font-style: italic;
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  /* ─── deliverables ─── */
+  .deliverables {
+    margin-top: 12px;
+  }
+  .deliv {
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .deliv:last-child { border-bottom: 1px solid var(--ink); }
+  .deliv:first-child { border-top: 1px solid var(--ink); }
+  .deliv .check {
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--ink);
+    border-radius: 2px;
+    background: var(--paper);
+  }
+  .deliv .name {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 24, 'wght' 500;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+  .deliv .note {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ─── timeline ─── */
+  .timeline {
+    margin-top: 12px;
+    position: relative;
+    padding-left: 28px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 4px; top: 8px; bottom: 8px;
+    width: 1px;
+    background: var(--rule);
+  }
+  .step {
+    padding: 18px 0;
+    position: relative;
+  }
+  .step::before {
+    content: '';
+    position: absolute;
+    left: -28px; top: 26px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+  }
+  .step.now::before { background: var(--accent); border-color: var(--accent); }
+  .step .when {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .step .what {
+    font-family: var(--serif);
+    font-variation-settings: 'opsz' 24, 'wght' 450;
+    font-size: 19px;
+    line-height: 1.35;
+    letter-spacing: -0.005em;
+  }
+
+  /* ─── footer ─── */
+  footer {
+    padding: 64px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  footer .glyph {
+    font-family: var(--serif);
+    font-style: italic;
+    font-variation-settings: 'opsz' 96, 'wght' 400, 'SOFT' 100, 'WONK' 1;
+    font-size: 80px;
+    line-height: 1;
+    color: var(--accent);
+    text-transform: none;
+    letter-spacing: -0.04em;
+  }
+
+  /* ─── reveal animation ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ─── responsive ─── */
+  @media (max-width: 900px) {
+    .container { padding: 24px 28px 64px; }
+    section.block {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 56px 0;
+    }
+    section.block .meta { position: static; }
+    .facts { grid-template-columns: repeat(2, 1fr); }
+    .segments { grid-template-columns: 1fr; }
+    .directions { grid-template-columns: 1fr; }
+    .direction { border-right: none; border-bottom: 1px solid var(--ink); }
+    .direction:last-child { border-bottom: none; }
+    .clef-feature { grid-template-columns: 1fr; }
+    .palette { grid-template-columns: repeat(2, 1fr); }
+    .spec-row { grid-template-columns: 1fr; gap: 8px; }
+    .spec-row .preview { font-size: 40px; }
+    .hero { padding: 56px 0 48px; }
+  }
+
+  @media print {
+    body::before { display: none; }
+    .progress, .topbar { display: none; }
+    section.block, .hero { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="container">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="l">
+      <span><span class="mark"></span>&nbsp; Live brief</span>
+      <span>Project №&nbsp;<strong style="color:var(--ink)">A-014</strong></span>
+    </div>
+    <div class="r">
+      <span>Logo · Identity</span>
+      <span>27 · 04 · 2026</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-eyebrow">Freelance brief — Logo design</div>
+    <h1 class="hero-title">
+      Artist<span class="ov">over</span>
+      <svg class="clef" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M55 8 C 55 25, 30 30, 30 50 C 30 70, 55 75, 55 60 C 55 50, 45 45, 40 50 C 35 55, 40 65, 50 65 C 65 65, 75 50, 70 35 C 65 22, 50 18, 45 30 L 50 90"
+              stroke="#B83A2A" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <circle cx="50" cy="92" r="3" fill="#B83A2A"/>
+      </svg>
+    </h1>
+    <p class="hero-sub">
+      A logo for an <em>Airbnb-for-musicians</em> app — book artists, vocalists,
+      DJs and bands for any kind of event. Visual hybrid between Airbnb and
+      Luma, leaning toward Luma. Dark, refined, a touch tech, a touch warm.
+    </p>
+  </header>
+
+  <!-- 01 BRIEF SNAPSHOT -->
+  <section class="block reveal">
+    <div class="meta">
+      <span class="num">§ 01</span>
+      <h3>The Brief</h3>
+    </div>
+    <div>
+      <h2>An app called <em>Artistover</em>.</h2>
+      <p class="lead">
+        It started life as <em>Band Over</em> — that name was taken — and reborn as Artistover.
+        The product is a marketplace: someone needs music for an event, someone else can play it,
+        the app puts them together. Think Airbnb’s flow, with Luma’s mood.
+      </p>
+
+      <div class="facts">
+        <div class="cell">
+          <div class="label">Brand</div>
+          <div class="value"><em>Artistover</em></div>
+        </div>
+        <div class="cell">
+          <div class="label">Category</div>
+          <div class="value">Marketplace<br/>app</div>
+        </div>
+        <div class="cell">
+          <div class="label">Mood</div>
+          <div class="value">Airbnb&nbsp;×&nbsp;Luma<br/>(&rarr; Luma)</div>
+        </div>
+        <div class="cell">
+          <div class="label">Theme</div>
+          <div class="value">Dark&nbsp;first<br/>light later</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 SEGMENTS -->
+  <section class="block reveal">
+    <div class="meta">
+      <span class="num">§ 02</span>
+      <h3>Audiences</h3>
+    </div>
+    <div>
+      <h2>Three segments,<br/>three doorways.</h2>
+      <p class="lead">
+        Their site shows three large entry points. Two are clear; one needs verification —
+        flag this when reviewing the live site.
+      </p>
+      <div class="segments">
+        <div class="segment">
+          <div class="seg-num">01</div>
+          <h4>B2C events</h4>
+          <p>Birthdays, weddings, club nights — the “need a band, find a band” case.</p>
+        </div>
+        <div class="segment">
+          <div class="seg-num">02</div>
+          <h4>Corporate</h4>
+          <p>Office parties, brand events. DJs and live music for company gatherings.</p>
+        </div>
+        <div class="segment unknown">
+          <div class="seg-num">03</div>
+          <h4>To verify</h4>
+          <p>Possibly weddings broken out as their own track, or a third bucket — confirm by visiting the site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 VISUAL DIRECTION -->
+  <section class="block reveal">
+    <div class="meta">
+      <span class="num">§ 03</span>
+      <h3>Visual direction</h3>
+    </div>
+    <div>
+      <h2>Dark, but not <em>black</em>.</h2>
+      <p>
+        Phase one is dark-only. The logo must work on dark; we’ll deliver an inverted
+        variant for a future light theme. The site background isn’t pitch black — it
+        carries a tint (blue, mauve, deep azalea, or a gradient — TBD on our side).
+      </p>
+      <p>
+        Reference moods: <strong>Luma</strong> for the overall posture,
+        <strong>Stripe</strong> and <strong>frame.io</strong> for the gradient-over-dark
+        treatment of small symbols and numerals — “make it pop, make it flash.”
+      </p>
+
+      <h2 style="margin-top:48px">Type specimen.</h2>
+      <p class="lead">
+        The client couldn’t verbalise the type direction, but pointed at Luma.
+        Reading between the lines: <em>a touch tech, but rounded and chunkier</em> —
+        the opposite of Stripe’s edgy, thin grotesque. Starting candidates:
+      </p>
+
+      <div class="specimen">
+        <div class="spec-row roboto">
+          <div class="name">Roboto</div>
+          <div class="preview">Artistover</div>
+          <div class="tag-out">Starter</div>
+        </div>
+        <div class="spec-row sf">
+          <div class="name">SF Pro Display</div>
+          <div class="preview">Artistover</div>
+          <div class="tag-out">Starter</div>
+        </div>
+        <div class="spec-row" style="font-family:var(--serif); font-variation-settings:'opsz' 144, 'wght' 500, 'SOFT' 100, 'WONK' 1;">
+          <div class="name">Wildcard</div>
+          <div class="preview" style="font-family:var(--serif); font-variation-settings:'opsz' 144, 'wght' 500, 'SOFT' 100, 'WONK' 1;">Artistover</div>
+          <div class="tag-out">Probe</div>
+        </div>
+      </div>
+      <p style="font-style:italic; color:var(--ink-soft); margin-top:12px;">
+        Goal: settle on 1–3 candidates and pressure-test against the wordmark sketch.
+      </p>
+    </div>
+  </section>
+
+  <!-- 04 LOGO DIRECTIONS -->
+  <section class="block reveal">
+    <div class="meta">
+      <span class="num">§ 04</span>
+      <h3>Two directions</h3>
+    </div>
+    <div>
+      <h2>One <em>Airbnb-shaped</em>,<br/>one <em>Luma-shaped</em>.</h2>
+      <p class="lead">
+        Present both. Spend the lion’s share of the time on the Airbnb-shaped route —
+        the client wasn’t convinced by the Luma-shaped one and we shouldn’t over-invest there.
+      </p>
+
+      <div class="directions">
+        <div class="direction a">
+          <span class="tag">Direction A</span>
+          <h4>Symbol &amp; <em>wordmark</em></h4>
+          <div class="ref">Reference: Airbnb’s “bélo”</div>
+          <p>
+            A larger mark to the left of the wordmark. The mark itself should mean
+            something we can justify — not a shrug-shape. Possibilities to explore:
+            an abstracted location pin, a music symbol, a fusion of the two, or an
+            invented glyph that earns its keep.
+          </p>
+          <div class="priority"><strong>Priority:</strong> &nbsp; primary route</div>
+        </div>
+        <div class="direction b">
+          <span class="tag">Direction B</span>
+          <h4>Wordmark &amp; <em>tiny glyph</em></h4>
+          <div class="ref">Reference: Luma</div>
+          <p>
+            The wordmark leads, with a small symbol set alongside (Luma’s mark reads
+            almost like an AI icon). Lower investment — the client wasn’t sold on
+            this direction. Show one polished pass.
+          </p>
+          <div class="priority"><strong>Priority:</strong> &nbsp; secondary route</div>
+        </div>
+      </div>
+
+      <!-- R-to-clef feature -->
+      <div class="clef-feature">
+        <div class="clef-art">
+          <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
+            <text x="40" y="220" font-family="Fraunces, serif" font-size="180"
+                  font-style="italic" font-weight="500" fill="#F2ECDF"
+                  font-variation-settings="'opsz' 144, 'wght' 500, 'SOFT' 100, 'WONK' 1">
+              Artistove
+            </text>
+            <!-- the R replaced by an S-curve -->
+            <path d="M 360 240
+                     C 360 180, 320 160, 300 160
+                     C 280 160, 260 180, 270 200
+                     C 280 220, 320 220, 340 200
+                     C 360 180, 380 140, 360 110
+                     C 340 80, 290 80, 280 110
+                     C 270 140, 290 160, 310 150
+                     C 360 130, 460 100, 530 110"
+                  stroke="#E5B14A" stroke-width="6" fill="none"
+                  stroke-linecap="round"/>
+            <circle cx="528" cy="111" r="6" fill="#E5B14A"/>
+            <text x="40" y="280" font-family="JetBrains Mono, monospace"
+                  font-size="11" letter-spacing="2" fill="#9A8E7E">
+              R → ABSTRACTED TREBLE CLEF, EXTENDS THROUGH THE WORD
+            </text>
+          </svg>
+        </div>
+        <div class="clef-text">
+          <h4>The <em>R-to-clef</em> idea.</h4>
+          <p>
+            Try this: write the wordmark, then take the leg of the <em>R</em> and
+            redraw it as a long S-curve that abstracts a treble clef, sweeping
+            forward and resolving at the end of the word.
+          </p>
+          <p>
+            Tonally, look at the <em>Floria</em> logo — but the variant without the hat.
+            Lyrical, single-stroke, confident. We’ll brainstorm this on a canvas
+            together and iterate from there.
+          </p>
+          <span class="ref-link">Iterate together · brainstorm · canvas</span>
+        </div>
+      </div>
+
+      <div class="pull">
+        <q>A symbol that means something — not a shrug-shape we can’t justify.</q>
+        <span class="src">Paraphrased from the brief</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 COLOR -->
+  <section class="block reveal">
+    <div class="meta">
+      <span class="num">§ 05</span>
+      <h3>Colour</h3>
+    </div>
+    <div>
+      <h2>Black, white,<br/>and <em>one more</em>.</h2>
+      <p class="lead">
+        Phase one: black + white + a single accent. Don’t spend cycles on a full
+        secondary / tertiary ramp yet — that’s a rabbit hole for the system phase.
+      </p>
+
+      <div class="palette">
+        <div class="swatch sw-paper">
+          <div class="lbl">Paper</div>
+          <div class="hex">#F2ECDF</div>
+        </div>
+        <div class="swatch sw-warm">
+          <div class="lbl">Paper · warm</div>
+          <div class="hex">#E8DFCA</div>
+        </div>
+        <div class="swatch sw-ink">
+          <div class="lbl">Ink</div>
+          <div class="hex">#1A1410</div>
+        </div>
+        <div class="swatch sw-acc">
+          <div class="lbl">Accent</div>
+          <div class="hex">#B83A2A</div>
+        </div>
+        <div class="swatch sw-mustard">
+          <div class="lbl">Mustard</div>
+          <div class="hex">#E5B14A</div>
+        </div>
+      </div>
+      <p class="palette-note">
+        Document palette only — the product palette is TBD. Candidates floated:
+        deep blue, mauve, azalea, or a gradient.
+      </p>
+      <p>
+        For the system phase we’ll lean on <strong>Leonardo</strong> and
+        <strong>Type Scale</strong> — generate everything from a primer hex and
+        scale it. Expect gradients on small symbols (Stripe-style numerals,
+        Luma-style rainbow ensemble) once the mark is settled.
+      </p>
+    </div>
+  </section>
+
+  <!-- 06 DELIVERABLES -->
+  <section class="block reveal">
+    <div class="meta">
+      <span class="num">§ 06</span>
+      <h3>Deliverables</h3>
+    </div>
+    <div>
+      <h2>What lands<br/>on their desk.</h2>
+      <div class="deliverables">
+        <div class="deliv">
+          <div class="check"></div>
+          <div class="name">Primary logo · dark</div>
+          <div class="note">Direction A + B</div>
+        </div>
+        <div class="deliv">
+          <div class="check"></div>
+          <div class="name">Inverted variant · for future light theme</div>
+          <div class="note">Phase 2</div>
+        </div>
+        <div class="deliv">
+          <div class="check"></div>
+          <div class="name">Favicon</div>
+          <div class="note">Web</div>
+        </div>
+        <div class="deliv">
+          <div class="check"></div>
+          <div class="name">Mobile app icon</div>
+          <div class="note">iOS · Android</div>
+        </div>
+        <div class="deliv">
+          <div class="check"></div>
+          <div class="name">Type recommendation · 1–3 candidates</div>
+          <div class="note">With rationale</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 TIMELINE -->
+  <section class="block reveal" style="border-bottom:none">
+    <div class="meta">
+      <span class="num">§ 07</span>
+      <h3>Process</h3>
+    </div>
+    <div>
+      <h2>Working <em>cadence</em>.</h2>
+      <p class="lead">
+        Fast exploration with AI for early shapes, then convergence on a canvas
+        together. Iterations expected.
+      </p>
+      <div class="timeline">
+        <div class="step">
+          <div class="when">~1 week ago</div>
+          <div class="what">Kick-off with the client. Direction surfaced — dark, Luma-leaning, R-to-clef idea floated.</div>
+        </div>
+        <div class="step now">
+          <div class="when">This week</div>
+          <div class="what">Quick AI explorations for both logo directions; surface fonts; align on the single accent colour.</div>
+        </div>
+        <div class="step">
+          <div class="when">Mid-week sync</div>
+          <div class="what">Discuss type direction in depth and the pieces of frame.io / Stripe they responded to.</div>
+        </div>
+        <div class="step">
+          <div class="when">Following pass</div>
+          <div class="what">Refine winning direction; draft favicon and app icon; introduce gradient treatments.</div>
+        </div>
+        <div class="step">
+          <div class="when">System phase</div>
+          <div class="what">Generate full colour and type scales (Leonardo, Type Scale) once the brand atom is locked.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div>Brief compiled from PTT · 27 · 04 · 2026</div>
+      <div style="margin-top:6px; opacity:0.6">For Bogdan · Internal use</div>
+    </div>
+    <div class="glyph">A&times;</div>
+  </footer>
+
+</div>
+
+<script>
+  // scroll progress
+  const bar = document.getElementById('progress');
+  const onScroll = () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    bar.style.width = pct + '%';
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+
+  // section reveal on intersection
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
