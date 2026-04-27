@@ -1,3 +1,6 @@
 *
-!brief.html
 !.gitignore
+!index.html
+!.github/
+!.github/workflows/
+!.github/workflows/pages.yml
